@@ -11,14 +11,14 @@ def main():
     subreddit = []
     if resp.ok:
         with open('subreddit.json', 'w') as file_object:
-            json.dump(resp.json(), file_object, indent=4)
+            json.dump(resp.json(), file_object, indent=2)
         with open('subreddit.json') as file_object:
             file_read = json.load(file_object)
         for i in file_read.values():
             for j in range(len(i)):
                 subreddit.append({i[j]['id']: {'author': i[j]['author'], 'subreddit': i[j]['subreddit']}})
         with open('subreddit.json', 'w') as file_object:
-            json.dump(subreddit, file_object, indent=4)
+            json.dump(subreddit, file_object, indent=2)
     else:
         raise Exception("HTTP is not supported")
 
